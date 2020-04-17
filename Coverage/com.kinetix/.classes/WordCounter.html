@@ -1,0 +1,143 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: WordCounter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.kinetix</a> ]
+</div>
+
+<h1>Coverage Summary for Class: WordCounter (com.kinetix)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">WordCounter</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (11/ 11)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.kinetix;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import org.apache.commons.collections4.map.CaseInsensitiveMap;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import java.util.Map;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;/**
+<i>8</i>&nbsp; * Class to count the Word no, of times it added.
+<i>9</i>&nbsp; * CaseInsensitiveMap used to store the words.
+<i>10</i>&nbsp; */
+<b class="fc"><i>11</i>&nbsp;public class WordCounter {</b>
+<i>12</i>&nbsp;
+<b class="fc"><i>13</i>&nbsp;    Map&lt;String, Integer&gt; wordCountMap = new CaseInsensitiveMap&lt;&gt;();</b>
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;    /**
+<i>16</i>&nbsp;     * Method checks the string is only alphabet.
+<i>17</i>&nbsp;     * The condition should include alphabet from other languages.
+<i>18</i>&nbsp;     * return true is its only alphabets else return false.
+<i>19</i>&nbsp;     * @param str String
+<i>20</i>&nbsp;     * @return
+<i>21</i>&nbsp;     */
+<i>22</i>&nbsp;    boolean isStringOnlyAlphabet(String str) {
+<i>23</i>&nbsp;
+<b class="fc"><i>24</i>&nbsp;        if (str == null || str.trim().equals(&quot;&quot;)){</b>
+<b class="fc"><i>25</i>&nbsp;            return false;</b>
+<i>26</i>&nbsp;        }
+<i>27</i>&nbsp;
+<b class="fc"><i>28</i>&nbsp;        return ((str != null)</b>
+<b class="fc"><i>29</i>&nbsp;                &amp;&amp; (str.matches(&quot;^[\\p{L}]*$&quot;)));</b>
+<i>30</i>&nbsp;    }
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;    /**
+<i>33</i>&nbsp;     * Method adds the word to MAP as key and value as no, of times the word is added.
+<i>34</i>&nbsp;     * The case of the word is ignored.
+<i>35</i>&nbsp;     * todo: Translate the word.
+<i>36</i>&nbsp;     *
+<i>37</i>&nbsp;     * @param word
+<i>38</i>&nbsp;     */
+<i>39</i>&nbsp;     void addWord(String word){
+<i>40</i>&nbsp;
+<b class="fc"><i>41</i>&nbsp;        if (isStringOnlyAlphabet(word)) {</b>
+<b class="fc"><i>42</i>&nbsp;            wordCountMap.merge(word,1,Integer::sum);</b>
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;        }else {
+<b class="fc"><i>45</i>&nbsp;            throw new IllegalArgumentException(&quot;word must be non-alphabets: &quot;+word);</b>
+<i>46</i>&nbsp;        }
+<b class="fc"><i>47</i>&nbsp;    }</b>
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;    /**
+<i>50</i>&nbsp;     * Method returns the count for the given word.
+<i>51</i>&nbsp;     * todo: Translate the word.
+<i>52</i>&nbsp;     * @param word
+<i>53</i>&nbsp;     * @return
+<i>54</i>&nbsp;     */
+<i>55</i>&nbsp;    Integer getCount(String word){
+<b class="fc"><i>56</i>&nbsp;        return wordCountMap.get(word);</b>
+<i>57</i>&nbsp;    }
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;
+<i>60</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-04-17 15:58</div>
+</div>
+</body>
+</html>
